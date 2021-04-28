@@ -3,3 +3,5 @@
 *.__pycache__/
 venv/
 .pytest_cache/
+pages/__pycache__/base_page.cpython-39.pyc
+pages/__pycache__/main_page.cpython-39.pyc
