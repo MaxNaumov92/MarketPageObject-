@@ -16,11 +16,3 @@ class ProductPage(BasePage):
         product_name_message = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_ADD_TO_CARD_MESSAGE)
         assert product_price.text == product_price_message.text, "Wrong price of product added to card"
         assert product_name.text == product_name_message.text, "Wrong product added to card"
-
-
-
-
-
-
-
-        #self.solve_quiz_and_get_code()
