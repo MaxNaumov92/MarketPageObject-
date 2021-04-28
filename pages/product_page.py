@@ -12,10 +12,11 @@ class ProductPage(BasePage):
     def add_to_card_check(self):
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
         product_price_message = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE_ADD_TO_CARD_MESSAGE)
-        product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
+        product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
         product_name_message = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_ADD_TO_CARD_MESSAGE)
-        assert product_name == product_name_message, "Wrong product added to card"
-        assert product_price == product_price_message, "Wrong price of product added to card"
+        assert product_price.text == product_price_message.text, "Wrong price of product added to card"
+        assert product_name.text == product_name_message.text, "Wrong product added to card"
+
 
 
 
