@@ -5,6 +5,8 @@ class BasePageLocators():
     # Локатор для перехода по ссылке Войти или зарегистрироваться
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    CARD_PAGE_LINK = (By.CSS_SELECTOR, ".btn-group a[href$='/ru/basket/']")
+
 
 class MainPageLocators():
     # Локатор для перехода по ссылке Войти или зарегистрироваться
@@ -36,3 +38,9 @@ class ProductPageLocators():
     PRODUCT_PRICE_ADD_TO_CARD_MESSAGE = (By.CSS_SELECTOR, "#messages  .alert.alert-safe.alert-noicon.alert-info strong")
     # Локатор сообщения о добавлении продукта в корзину
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert.alert-safe.alert-noicon.alert-success.fade.in")
+
+
+class BasketPageLocators():
+    CARD_CONTENT_HOLDER = (By.CSS_SELECTOR, "#content_inner > p")
+    CARD_CONTENT_NUMBER_OF_PRODUCTS = (By.CSS_SELECTOR, "#id_form-0-quantity")
+
