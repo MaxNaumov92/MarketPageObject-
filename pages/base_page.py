@@ -12,7 +12,7 @@ class BasePage():
         # Инициализация
         self.browser = browser
         self.url = url
-        # self.browser.implicitly_wait(timeout)
+        self.browser.implicitly_wait(timeout)
 
     def open(self):
         # Открытие страницы
