@@ -1,7 +1,7 @@
 from pages.product_page import ProductPage
 import pytest
 
-# Данные для проверки страниц акциоонных товаров
+# Данные для проверки страниц акционных товаров
 product_base_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
 urls = [f"{product_base_link}/?promo=offer{no}" for no in range(10)]
 
