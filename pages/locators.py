@@ -5,7 +5,7 @@ class BasePageLocators():
     # Локатор для перехода по ссылке Войти или зарегистрироваться
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    BASKET_PAGE_LINK = (By.CSS_SELECTOR, ".btn-group a[href$='/ru/basket/']")
+    BASKET_PAGE_LINK = (By.CSS_SELECTOR, "span.btn-group .btn.btn-default")
 
 
 class MainPageLocators():
