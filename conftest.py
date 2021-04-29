@@ -4,10 +4,12 @@ from selenium.webdriver.chrome.options import Options
 
 
 def pytest_addoption(parser):
+    # Аргумент для запуска тестов на определенном браузере
     parser.addoption("--browser_name",
                      action="store",
                      default="chrome",
                      help="Choose browser: Chrome or Firefox")
+    # Аргумент для запуска тестов с определенным языком
     parser.addoption("--language",
                      action="store",
                      default="eu",
