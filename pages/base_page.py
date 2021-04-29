@@ -29,7 +29,7 @@ class BasePage():
 
     def go_to_basket_page(self):
         # Переход на страницу корзины
-        link = self.browser.find_element()
+        link = self.browser.find_element(*BasePageLocators.BASKET_PAGE_LINK)
         link.click()
 
     def is_element_present(self, how, what):

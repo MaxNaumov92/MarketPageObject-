@@ -6,7 +6,7 @@ from .base_page import BasePage
 
 
 class BasketPage(BasePage):
-    def basket_has_no_products_check(self, how, what, timeout):
+    def basket_has_no_products_check(self, how, what, timeout=4):
         # Проверка пустой корзины (timeout)
         try:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))

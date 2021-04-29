@@ -1,6 +1,6 @@
-from .pages.basket_page import BasketPage
-from .pages.product_page import ProductPage
-from .pages.locators import BasketPageLocators
+from pages.product_page import ProductPage
+from pages.basket_page import BasketPage
+from pages.locators import BasketPageLocators
 import pytest
 
 # Данные для проверки страниц акционных товаров
@@ -72,6 +72,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     page.open()
     # Переходит в корзину по кнопке в шапке
     page.go_to_basket_page()
+    # Получаем методы страницы корзины
     basket_page = BasketPage(browser, browser.current_url)
     # Ожидаем, что в корзине нет товаров
     basket_page.basket_has_no_products_check(*BasketPageLocators.CARD_CONTENT_NUMBER_OF_PRODUCTS), \
