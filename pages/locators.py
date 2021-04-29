@@ -24,3 +24,4 @@ class ProductPageLocators():
     PRODUCT_PRICE = (By.CSS_SELECTOR, ".col-sm-6.product_main .price_color")
     PRODUCT_NAME_ADD_TO_CARD_MESSAGE = (By.CSS_SELECTOR, "#messages .alertinner strong")
     PRODUCT_PRICE_ADD_TO_CARD_MESSAGE = (By.CSS_SELECTOR, "#messages  .alert.alert-safe.alert-noicon.alert-info strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert.alert-safe.alert-noicon.alert-success.fade.in")
