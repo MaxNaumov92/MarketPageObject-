@@ -10,7 +10,8 @@ product_base_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-w
 urls = [f"{product_base_link}/?promo=offer{no}" for no in range(10)]
 
 
-# Пометка страницы ?promo=offer7 недоработанной
+
+@pytest.mark.need_review
 @pytest.mark.parametrize('number', [*range(1, 7), pytest.param(7, marks=pytest.mark.xfail), *range(8, 10)])
 def test_guest_can_add_product_to_basket(browser, number):
     # Тест проверки страниц товаров по акции
@@ -58,7 +59,7 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.open()
     page.should_be_login_link()
 
-
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     # Тест возможности перехода на LoginPage со страницы продукта
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
@@ -67,7 +68,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page.go_to_login_page()
 
 
-@pytest.mark.new
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     # Гость открывает страницу товара
     link = "http://selenium1py.pythonanywhere.com/ru/catalogue/hacking-exposed-wireless_208/"
@@ -82,7 +83,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     # Ожидаем, что есть текст о том, что корзина пуста
     basket_page.basket_has_empty_basket_text_check()
 
-
+@pytest.mark.need_review
 class TestUserAddToBasketFromProductPage:
     # Тесты для зарегистрированного пользователя
     @pytest.fixture(scope="function", autouse=True)
