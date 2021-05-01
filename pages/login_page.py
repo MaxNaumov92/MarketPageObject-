@@ -28,3 +28,10 @@ class LoginPage(BasePage):
             "REG-PASSWORD-APPROVE holder is not presented"
         assert self.is_element_present(*LoginPageLocators.REG_REGISTRATION_BUTTON), \
             "REG-BUTTON is not presented"
+
+    def register_new_user(self, email, password):
+        # Регистрация нового пользователя
+        self.browser.find_element(*LoginPageLocators.REG_EMAIL_HOLDER).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.REG_PASSWORD_HOLDER).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_PASSWORD_APPROVE_HOLDER).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_REGISTRATION_BUTTON).click()
