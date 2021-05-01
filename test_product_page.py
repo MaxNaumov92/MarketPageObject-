@@ -3,7 +3,6 @@ import time
 from pages.product_page import ProductPage
 from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
-from pages.locators import BasketPageLocators
 
 
 # Данные для проверки страниц акционных товаров
@@ -67,7 +66,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page.open()
     page.go_to_login_page()
 
-
+@pytest.mark.new
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     # Гость открывает страницу товара
     link = "http://selenium1py.pythonanywhere.com/ru/catalogue/hacking-exposed-wireless_208/"
@@ -78,14 +77,12 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     # Получаем методы страницы корзины
     basket_page = BasketPage(browser, browser.current_url)
     # Ожидаем, что в корзине нет товаров
-    basket_page.basket_has_no_products_check(*BasketPageLocators.CARD_CONTENT_NUMBER_OF_PRODUCTS), \
-        "You have something in your basket!"
+    basket_page.basket_has_no_products_check()
     # Ожидаем, что есть текст о том, что корзина пуста
-    basket_page.basket_has_empty_basket_text_check(*BasketPageLocators.CARD_CONTENT_HOLDER), \
-        "Your basket is not empty!"
+    basket_page.basket_has_empty_basket_text_check()
 
 
-@pytest.mark.new
+
 class TestUserAddToBasketFromProductPage:
     # Тесты для зарегистрированного пользователя
     @pytest.fixture(scope="function", autouse=True)
