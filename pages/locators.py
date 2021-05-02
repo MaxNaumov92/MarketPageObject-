@@ -8,6 +8,7 @@ class BasePageLocators():
     BASKET_PAGE_LINK = (By.CSS_SELECTOR, "span.btn-group .btn.btn-default")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
+
 class MainPageLocators():
     # Локатор для перехода по ссылке Войти или зарегистрироваться
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
@@ -41,6 +42,7 @@ class ProductPageLocators():
 
 
 class BasketPageLocators():
+    # Локатор сообщения о "пустой" корзине
     CARD_CONTENT_HOLDER = (By.CSS_SELECTOR, "#content_inner > p")
+    # Локатор о кол-ве товара в корзине
     CARD_CONTENT_NUMBER_OF_PRODUCTS = (By.CSS_SELECTOR, "#id_form-0-quantity")
-
