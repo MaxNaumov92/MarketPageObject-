@@ -1,7 +1,6 @@
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.basket_page import BasketPage
-from pages.locators import BasketPageLocators
 import pytest
 
 
@@ -25,7 +24,6 @@ class TestLoginFromMainPage():
         page.should_be_login_link()
 
 
-@pytest.mark.new
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     # Гость открывает главную страницу
     link = "http://selenium1py.pythonanywhere.com/"
@@ -36,8 +34,6 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     # Получаем методы страницы корзины
     basket_page = BasketPage(browser, browser.current_url)
     # Ожидаем, что в корзине нет товаров
-    basket_page.basket_has_no_products_check(*BasketPageLocators.CARD_CONTENT_NUMBER_OF_PRODUCTS), \
-        "You have something in your basket!"
+    basket_page.basket_has_no_products_check()
     # Ожидаем, что есть текст о том, что корзина пуста
-    basket_page.basket_has_empty_basket_text_check(*BasketPageLocators.CARD_CONTENT_HOLDER), \
-        "Your basket is not empty!"
+    basket_page.basket_has_empty_basket_text_check()
