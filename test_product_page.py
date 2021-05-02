@@ -5,16 +5,10 @@ from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
 
 
-# Данные для проверки страниц акционных товаров
-product_base_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
-urls = [f"{product_base_link}/?promo=offer{no}" for no in range(10)]
-
-
 @pytest.mark.need_review
-@pytest.mark.parametrize('number', [*range(1, 7), pytest.param(7, marks=pytest.mark.xfail), *range(8, 10)])
-def test_guest_can_add_product_to_basket(browser, number):
+def test_guest_can_add_product_to_basket(browser):
     # Тест проверки страниц товаров по акции
-    link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{number}'
+    link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1'
     page = ProductPage(browser, link)
     page.open()
     page.should_be_product_page()
@@ -70,17 +64,13 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
 
 @pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
-    # Гость открывает страницу товара
+    # Тест на проверку видимости товара в корзине гостем при переходе со страницы продукта
     link = "http://selenium1py.pythonanywhere.com/ru/catalogue/hacking-exposed-wireless_208/"
     page = ProductPage(browser, link)
     page.open()
-    # Переходит в корзину по кнопке в шапке
     page.go_to_basket_page()
-    # Получаем методы страницы корзины
     basket_page = BasketPage(browser, browser.current_url)
-    # Ожидаем, что в корзине нет товаров
     basket_page.basket_has_no_products_check()
-    # Ожидаем, что есть текст о том, что корзина пуста
     basket_page.basket_has_empty_basket_text_check()
 
 
