@@ -87,7 +87,6 @@ class TestUserAddToBasketFromProductPage:
         self.page.register_new_user(email=email, password=password)
         self.page.should_be_authorized_user()
 
-    @pytest.mark.need_review
     def test_user_cant_see_success_message(self, browser):
         # Тест на проверку видимости  сообщения гостем без! добавления товара в корзину (негатив)
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
@@ -95,6 +94,7 @@ class TestUserAddToBasketFromProductPage:
         page.open()
         page.should_not_be_success_message()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         # Тест проверки страницы товара по акции
         link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1'
